@@ -1,0 +1,33 @@
+{%extends 'layouts\nav.html'%}
+{%load static%}
+{%block main%}
+<br><br><br><br>
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        {%for category in categories%}
+                         <div class="col">
+                        <div class="card" style="width:50%,height:50px">
+
+                          <img  width="400" height="300" src='{%static "/images/"|add:category.img %}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">{{category}}</h5>
+                              <div style="text-align:right">
+                                  <a href="{%url 'index_category_products' category.id%}" class="btn btn-primary" type="submit">Show Products</a>
+                          </div>
+                              </div>
+                        </div>
+                      </div>
+                     {% endfor %}
+
+
+
+
+</div>
+
+
+                </div>
+
+<br><br><br>
+
+{%endblock%}
+

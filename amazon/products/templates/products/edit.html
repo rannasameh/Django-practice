@@ -1,0 +1,40 @@
+{%extends 'layouts\nav.html'%}
+{%load static%}
+{%block main%}
+<br><br><br><br>
+<form  method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+
+<div class="card mb-3" style="width:1200px;margin-left:20px">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img style="padding-left: 50px" src='{%static "/images/"|add:form.instance.img.url|slice:"24:" %}' class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">EDIT PRODUCT DETAILS</h5>
+           {%for item in form%}
+   <div class="row" style="padding:20px">
+         <div  class="col-2"> {{item.label}}</div>
+          <div  class="col-6" >
+              {{item}}
+          </div>
+      </div>
+    {%endfor%}
+ <div style="padding-left:500px">
+         <button type="submit" class="btn btn-primary">Edit product</button>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
+
+
+
+
+<br><br><br>
+
+{%endblock%}
+

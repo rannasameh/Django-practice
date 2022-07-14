@@ -1,0 +1,33 @@
+{%extends 'layouts\nav.html'%}
+{%load static%}
+{%block main%}
+<br><br><br><br>
+<form method="post">{% csrf_token %}
+
+<div class="card mb-3" style="width:1200px;margin-left:20px">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img style="padding-left: 50px" src='{%static "/images/"|add:products.img.url|slice:"24:" %}' class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+
+        <h5 class="card-title">Are you sure you want to delete "{{ object }}"?</h5>
+          <p class="card-text"><small class="text-muted">Category: {{object.category}}</small></p>
+          <p class="card-text">About this product : {{object.desc}}</p>
+          <p class="card-text">Stock : {{object.instock}}</p>
+          <p class="card-text">price: {{object.price}} $</p>
+          <p class="card-text">Ratings : {{object.rating}}</p>
+          <p class="card-text">Sold in : {{object.countries}}</p>
+        <p class="card-text">Latest purchase : {{object.updated_at}}</p>
+          <br><br>
+          <input class="btn btn-danger" type="submit" value="Delete">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
+<br><br><br><br>
+{%endblock%}

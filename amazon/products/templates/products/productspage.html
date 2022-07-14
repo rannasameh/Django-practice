@@ -1,0 +1,31 @@
+{%extends 'layouts\nav.html'%}
+{%load static%}
+{%block main%}
+<br><br><br><br>
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                       {% for product in products %}
+                         <div class="col">
+                        <div class="card h-70" >
+                          <img   width="400" height="300" src='{%static "/images/"|add:product.img.url|slice:"24:" %}'class="card-img-top" alt="...">
+                          <div class="card-body" style="text-align: left">
+                            <h5 class="card-title">{{product.name}}</h5>
+                              <p class="card-text"><small class="text-muted">Category: {{product.category}}</small></p>
+                            <p class="card-text">Availability :{{product.instock}}</p>
+                              <div style="text-align:right">
+                           <a href="{% url 'itemproductpage' product.id%}" class="btn btn-primary" type="submit">More..</a>
+                                  <a href="{{product.get_delete_url}}" class="btn btn-danger" type="submit">Delete</a>
+                                   <a href="{{product.get_updated_url}}" class="btn btn-warning" type="submit">Edit</a>
+
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                     {% endfor %}
+
+</div>
+                </div>
+<br><br><br>
+
+{%endblock%}
+
