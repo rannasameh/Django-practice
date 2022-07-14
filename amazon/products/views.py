@@ -56,8 +56,3 @@ class CreateProfileView(View):
 
 
 
-
-
-# def index_category_products(request, category):
-#     products = Products.objects.filter(category=category)
-#     return render(request, "products/productspage.html", context={"products": products})

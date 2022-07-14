@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-#from products.views import index_Categories,index_category_products
 
 
 urlpatterns = [
@@ -24,7 +23,6 @@ urlpatterns = [
     path('contactus/',include("contactus.urls")),
     path('aboutus/',include("aboutus.urls")),
     path('products/',include("products.urls")),
-   # path('categories', index_Categories, name='index_categories'),
-  #  path('categoryproducts/<category>',index_category_products,name="index_category_products")
+
 
 ]
